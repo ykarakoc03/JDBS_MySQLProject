@@ -3,9 +3,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DeleteStatement {
+public class CreateStatement {
 
-	public DeleteStatement() {
+	public CreateStatement() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -26,18 +26,7 @@ public class DeleteStatement {
 
 			Statement stmt = con.createStatement();
 
-			/*
-			String isim = "'Yavuz Bal'";
-			String sqlStatement = "delete from ogrenciler where isim =" + isim;	
-
-			int result = stmt.executeUpdate(sqlStatement);
-			*/
-
-			/*
-			int result = stmt.executeUpdate("update ogrenciler set isim = 'Martin Parr2' where id = 121");
-			*/
-			
-			int result = stmt.executeUpdate("insert into ogrenciler values(221, 'Ali Veli2', 'Ankara', 95)");			
+			int result=stmt.executeUpdate("create table personel(id char(4), isim varchar(40), maas int)");
 
 			System.out.println(result + " records affected");			
 

@@ -14,16 +14,22 @@ public class StoreFile {
 			// create a connection to the database
 			Connection con = DriverManager.getConnection(url, user, password);
 
-			PreparedStatement ps=con.prepareStatement(
-					"insert into ogrenciler values(?,?)");
 
-			File f=new File("c:\\myfile.txt");
-			FileReader fr=new FileReader(f);
+			PreparedStatement ps=con.prepareStatement("insert into personel (id, isim, maas, fotograf, cv) values(?,?,?,?,?)");
 
-			ps.setInt(1,101);
-			ps.setCharacterStream(2,fr,(int)f.length());
+			File f = new File("C:\\CV.txt");
+			FileReader fr = new FileReader(f);
+
+			ps.setInt(1,1002);
+			ps.setString(2,"Veli Mert");
+			ps.setInt(3,85000);
+			ps.setString(4,null);
+			
+			ps.setCharacterStream(5,fr,(int)f.length());
+			
 			int i=ps.executeUpdate();
-			System.out.println(i+" records affected");
+			
+			System.out.println(i+" records inserted");
 
 			con.close();
 

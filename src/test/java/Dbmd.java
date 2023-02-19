@@ -1,6 +1,6 @@
 import java.sql.*;
 
-class Dbmd2{
+class Dbmd{
 
 	public static void main(String args[]){
 
@@ -17,15 +17,13 @@ class Dbmd2{
 			Connection con = DriverManager.getConnection(url, user, password);
 
 			DatabaseMetaData dbmd = con.getMetaData();
-			
-			String table[] = {"TABLE"};
-			
-			ResultSet rs = dbmd.getTables(null,null,null,table);
 
-			while(rs.next()){
-				System.out.println(rs.getString(1)+" "+rs.getString(3)+" "+rs.getString(4));
-			}
-
+			System.out.println("Driver Name: " + dbmd.getDriverName());
+			System.out.println("Driver Version: " + dbmd.getDriverVersion());
+			System.out.println("UserName: " + dbmd.getUserName());
+			System.out.println("Database Product Name: " + dbmd.getDatabaseProductName());
+			System.out.println("Database Product Version: " + dbmd.getDatabaseProductVersion());		
+			
 			con.close();
 
 		}catch(Exception e){ System.out.println(e);}

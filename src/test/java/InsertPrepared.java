@@ -14,14 +14,20 @@ class InsertPrepared{
 			// create a connection to the database
 			Connection con = DriverManager.getConnection(url, user, password);
 			
-			// (220, 'Ali Can', 'Ankara', 75);			
-
-			PreparedStatement stmt=con.prepareStatement("insert into ogrenciler values(?,?,?,?)");
+			// (220, 'Ali Can', 'Ankara', 75);
+			// (221, 'Veli Mert', 'Trabzon', 85)
 			
-			stmt.setInt(1,220);//1 specifies the first parameter in the query
-			stmt.setString(2,"Ali Can");
-			stmt.setString(3,"Ankara");
-			stmt.setInt(4,75);
+			int id = 221;
+			String isim = "Veli Mert";
+			String adres = "Trabzon";
+			int sinav_notu = 85;
+		
+			PreparedStatement stmt = con.prepareStatement("insert into ogrenciler values(?,?,?,?)");
+			
+			stmt.setInt(1,id); //1 specifies the first parameter in the query
+			stmt.setString(2,isim);
+			stmt.setString(3,adres);
+			stmt.setInt(4,sinav_notu);
 
 			int i=stmt.executeUpdate();
 			

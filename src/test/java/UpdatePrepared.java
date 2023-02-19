@@ -13,10 +13,12 @@ class UpdatePrepared{
 			Connection con = DriverManager.getConnection(url, user, password);
 
 			PreparedStatement stmt=con.prepareStatement("update ogrenciler set isim=? where id=?");
+			
 			stmt.setString(1,"Martin Parr");//1 specifies the first parameter in the query i.e. name
 			stmt.setInt(2,220);
 
 			int i=stmt.executeUpdate();
+			
 			System.out.println(i+" records updated");
 
 			con.close();

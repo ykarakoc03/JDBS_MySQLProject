@@ -19,11 +19,8 @@ public class Statement {
             // Class.forName("com.mysql.cj.jdbc.Driver");
 			
             // create a connection to the database
-			Connection con = DriverManager.getConnection(url, user, password);
+			Connection con = DriverManager.getConnection(url, user, password);	
 
-
-			//      ResultSet.TYPE_SCROLL_SENSITIVE->  kayıtlarda ileri geri ve istediğimiz kayıda gidebilmemiz için
-			//      ResultSet.CONCUR_UPDATABLE->  yapılan değişiklikleri aynı anda kaydetmek için
 			java.sql.Statement stmt= con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			
 			ResultSet rs=stmt.executeQuery("select * from ogrenciler");

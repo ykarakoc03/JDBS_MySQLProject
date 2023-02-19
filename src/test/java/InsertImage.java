@@ -15,14 +15,21 @@ public class InsertImage {
 			// create a connection to the database
 			Connection con = DriverManager.getConnection(url, user, password);
 
-			PreparedStatement ps=con.prepareStatement("insert into imgtable values(?,?)");
+			PreparedStatement ps=con.prepareStatement("insert into personel values(?,?,?,?,?)");
 
-			FileInputStream fin=new FileInputStream("d:\\g.jpg");
+			FileInputStream fin=new FileInputStream("C:\\fotograf.jpg");
 
-			ps.setString(1,"sonoo");
-			ps.setBinaryStream(2,fin,fin.available());
+			ps.setInt(1,1001);
+			ps.setString(2,"Ali Can");
+			ps.setInt(3,7000);
+
+			ps.setBinaryStream(4,fin,fin.available());
+
+			ps.setString(5,null);					
+
 			int i=ps.executeUpdate();
-			System.out.println(i+" records affected");
+
+			System.out.println(i+" records inserted");
 
 			con.close();
 

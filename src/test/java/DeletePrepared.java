@@ -15,10 +15,12 @@ class DeletePrepared{
 			//create a connection to the database
 			Connection con = DriverManager.getConnection(url, user, password);
 
-			PreparedStatement stmt=con.prepareStatement("delete from ogrenciler where id=?");
+			PreparedStatement stmt = con.prepareStatement("delete from ogrenciler where id = ?");
+			
 			stmt.setInt(1,122);
 
 			int i=stmt.executeUpdate();
+			
 			System.out.println(i+" records deleted");
 
 			con.close();
